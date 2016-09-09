@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pref_id: 1
+  user_id: 1
+  neighborhood_pref: MyString
+  gender_pref: MyString
+  price_limit_pref: 1.5
+  room_pref: MyString
+  season_pref: MyString
+  smoking_pref: false
+  drinking_pref: false
+
+two:
+  pref_id: 1
+  user_id: 1
+  neighborhood_pref: MyString
+  gender_pref: MyString
+  price_limit_pref: 1.5
+  room_pref: MyString
+  season_pref: MyString
+  smoking_pref: false
+  drinking_pref: false
