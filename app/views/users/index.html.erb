@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Username</th>
       <th>Password digest</th>
       <th>Is admin</th>
@@ -25,7 +24,6 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.user_id %></td>
         <td><%= user.username %></td>
         <td><%= user.password_digest %></td>
         <td><%= user.is_admin %></td>

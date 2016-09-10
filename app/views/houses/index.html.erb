@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>House</th>
       <th>User</th>
       <th>Neighborhood</th>
       <th>Price</th>
@@ -38,7 +37,6 @@
   <tbody>
     <% @houses.each do |house| %>
       <tr>
-        <td><%= house.house_id %></td>
         <td><%= house.user_id %></td>
         <td><%= house.neighborhood %></td>
         <td><%= house.price %></td>

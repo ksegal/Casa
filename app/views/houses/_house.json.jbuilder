@@ -1,2 +1,2 @@
-json.extract! house, :id, :house_id, :user_id, :neighborhood, :price, :street_1, :street_2, :city, :state, :zip, :active, :season, :gender, :smoking, :drinking, :pets_allowed, :furnished, :bath, :type, :laundry, :utilities_included, :description, :parking, :num_of_bedrooms, :num_of_bathrooms, :private_room, :private_bath, :created_at, :updated_at
+json.extract! house, :id, :user_id, :neighborhood, :price, :street_1, :street_2, :city, :state, :zip, :active, :season, :gender, :smoking, :drinking, :pets_allowed, :furnished, :bath, :type, :laundry, :utilities_included, :description, :parking, :num_of_bedrooms, :num_of_bathrooms, :private_room, :private_bath, :created_at, :updated_at
 json.url house_url(house, format: :json)

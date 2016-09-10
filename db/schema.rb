@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909180735) do
+ActiveRecord::Schema.define(version: 20160910003223) do
 
   create_table "houses", force: :cascade do |t|
-    t.integer  "house_id"
     t.integer  "user_id"
     t.string   "neighborhood"
     t.float    "price"
@@ -45,7 +44,6 @@ ActiveRecord::Schema.define(version: 20160909180735) do
   end
 
   create_table "pictures", force: :cascade do |t|
-    t.integer  "picture_id"
     t.integer  "house_id"
     t.string   "picture"
     t.datetime "created_at", null: false
@@ -53,7 +51,6 @@ ActiveRecord::Schema.define(version: 20160909180735) do
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.integer  "pref_id"
     t.integer  "user_id"
     t.string   "neighborhood_pref"
     t.string   "gender_pref"
@@ -67,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160909180735) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "user_id"
     t.string   "username"
     t.string   "password_digest"
     t.boolean  "is_admin"
