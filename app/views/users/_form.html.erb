@@ -16,13 +16,17 @@
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :password_digest %><br>
-    <%= f.text_field :password_digest %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :is_admin %><br>
-    <%= f.check_box :is_admin %>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
   </div>
+ <!-- <div class="field">
+     f.label  is_admin <br>
+     f.check_box  is_admin 
+  </div> -->
   <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -51,10 +55,11 @@
     <%= f.label :gender %><br>
     <%= f.text_field :gender %>
   </div>
+  <!-- Not a field that we will allow user to check. System will change this automatically once they add a house 
   <div class="field">
-    <%= f.label :is_owner %><br>
-    <%= f.check_box :is_owner %>
-  </div>
+     f.label  is_owner <br>
+     f.check_box  is_owner 
+  </div> -->
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
