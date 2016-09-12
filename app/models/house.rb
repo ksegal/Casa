@@ -8,6 +8,9 @@ class House < ActiveRecord::Base
 	belongs_to :user
 	has_many :pictures
 
+	# Allow pictures to be nested within house
+	accepts_nested_attributes_for :pictures
+
 	validates_presence_of :price, :neighborhood, :city, :state, :street_1, :description
 	
 	validates_inclusion_of :neighborhood, in: NEIGHBORHOODS_LIST.map{|key, value| value}, message: "is not a valid option"
