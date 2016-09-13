@@ -13,15 +13,11 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.file_field :picture %>
+    <%= f.text_field :user_id %>
   </div>
   <div class="field">
     <%= f.label :neighborhood %><br>
-    <%= f.text_field :neighborhood %>
+    <%= f.select(:neighborhood, House::NEIGHBORHOODS_LIST, prompt: "Select ...") %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
@@ -41,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.select(:state, House::STATES_LIST, prompt: "Select ...") %>
   </div>
   <div class="field">
     <%= f.label :zip %><br>
@@ -53,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :season %><br>
-    <%= f.text_field :season %>
+    <%= f.select(:season, House::SEASONS_LIST, prompt: "Select ...") %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
@@ -115,6 +111,14 @@
     <%= f.label :private_bath %><br>
     <%= f.check_box :private_bath %>
   </div>
+
+  <%= f.fields_for :pictures do |ff| %>
+    <div class="field">
+      <%= ff.label :picture %><br />
+      <%= ff.file_field :picture %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

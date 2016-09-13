@@ -8,8 +8,10 @@ class House < ActiveRecord::Base
 	belongs_to :user
 	has_many :pictures
 
+	scope :active,       -> { where(active: true) }
+
 	# Allow pictures to be nested within house
-	accepts_nested_attributes_for :pictures
+	accepts_nested_attributes_for :pictures, reject_if: ->(picture) { picture[:picture].blank? }
 
 	validates_presence_of :price, :neighborhood, :city, :state, :street_1, :description
 	
@@ -17,4 +19,11 @@ class House < ActiveRecord::Base
 	validates :gender, inclusion: { in: %w[male female not_specified], message: "is not a recognized gender in system" }
 	validates_inclusion_of :season, in: SEASONS_LIST.map{|key, value| value}, message: "is not a valid option"
 	validates_inclusion_of :state, in: STATES_LIST.map{|key, value| value}, message: "is not an option"
+
+	# # Callbacks
+	# before_save :make_owner
+
+	# def make_owner
+	# 	self.user.is_owner = true
+	# end
 end
