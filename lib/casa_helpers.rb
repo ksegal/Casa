@@ -2,8 +2,8 @@
 require 'helpers/house_recommendations'
 require 'helpers/user_recommendations'
 
-# create BreadExpressHelpers
+# create CasaHelpers
 module CasaHelpers
-  include CasaHelpers::HouseRecommendations
-  include CasaHelpers::UserRecommendations
+#  include CasaHelpers::HouseRecommendations
+#  include CasaHelpers::UserRecommendations
 end

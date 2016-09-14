@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
-include CasaHelpers::HouseRecommendations
-include CasaHelpers::UserRecommendations
-
 
   def home
-    if current_user && current_user.owner?()
+    if (current_user && current_user.owner?)
       #@recommendations for house and users will go here!
     
     elsif current_user
