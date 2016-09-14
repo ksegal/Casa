@@ -3,9 +3,13 @@ class User < ActiveRecord::Base
   # Use built-in rails support for password protection
   has_secure_password
 
+  mount_uploader :picture, PhotoUploader
+
   # Relationships
   has_one :preference
   has_many :houses
+
+  accepts_nested_attributes_for :preference
 
   # Scopes
   scope :by_gender,      -> { order(:gender) }
@@ -32,6 +36,11 @@ class User < ActiveRecord::Base
 
   def proper_name
     "#{first_name} #{last_name}"
+  end
+
+  def owner?
+    return false if is_owner.nil?
+    is_owner == true
   end
 
   # Private methods

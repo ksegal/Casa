@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -49,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
+    <%= f.file_field :picture %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
@@ -64,6 +64,40 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+
+    <!--Nested attributes form for preferences of a user -->
+    <%= f.fields_for :preference do |ff| %>
+      <div>
+        <%= ff.label :neighborhood_pref %>
+        <%= ff.text_field :neighborhood_pref %>
+      </div>
+      <div>
+        <%= ff.label :gender_pref %>
+        <%= ff.text_field :gender_pref %>
+      </div>
+      <div>
+        <%= ff.label :price_limit_pref %>
+        <%= ff.text_field :price_limit_pref %>
+      </div>
+      <div>
+        <%= ff.label :room_pref %>
+        <%= ff.text_field :room_pref %>
+      </div>
+      <div>
+        <%= ff.label :season_pref %>
+        <%= ff.text_field :season_pref %>
+      </div>
+      <div>
+        <%= ff.label :smoking_pref %>
+        <%= ff.text_field :smoking_pref %>
+      </div>
+      <div>
+        <%= ff.label :drinking_pref %>
+        <%= ff.text_field :drinking_pref %>
+      </div>
+    <% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
