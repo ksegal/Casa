@@ -125,5 +125,14 @@
   <%= @house.private_bath %>
 </p>
 
+<p>
+  <strong>Private bath:</strong>
+  <% @house.pictures.each do |p|%>
+    <% unless p.picture.nil? %>
+      <%= image_tag p.picture %>
+    <% end %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <%= link_to 'Back', houses_path %>
