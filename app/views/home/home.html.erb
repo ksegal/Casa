@@ -1,2 +1,33 @@
 <!-- home page for users that are logged in -->
 <%= link_to 'Logout', logout_path %>
+
+<h1><center>Welcome <%= current_user.username.capitalize %>!</center></h1>
+
+<% if @recommended_houses.empty? %>
+  <h5><center><i>There are currently no recommended houses</i></center></h5>
+<% else %>
+
+  <h5><center>Recommended Houses</center></h5><br>
+  <div class="divider"></div>
+
+  <table class="hoverable">
+    <thead class="datagrid">
+      <tr>
+        <th>Address</th>
+        <th class="center">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recommended_houses.each do |house| %>
+        <tr>
+          <td><%= house.city %>
+          </td>
+          <td align="center">
+            <%= @recommended_houses.price %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @recommended_houses, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>
