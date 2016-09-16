@@ -10,6 +10,67 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap";
+
+@import "bootstrap";
+
+body{
+	background-image: url("background_web.jpg");
+	background-size: cover;
+}
+
+.login{
+	background-color: white;
+	border-radius: 10px;
+}
+
+
+.container{
+
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+}
+
+.signup{
+	margin-top: 12.5%;
+
+}
+
+.casa_logo{
+	
+	margin-left: 35%;
+	margin-bottom: 20px;
+}
+
+.login{
+	margin-left: 35%;
+
+}
+
+.signin_form{
+	padding-left: 22%;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.tabs{
+	padding-top: 20px;
+}
+
+.actions{
+	padding-top: 20px;
+	padding-left: 60%;
+}
+
+.control-group{
+	padding-top: 20px;
+}
+
+.submit{
+	background: #ffde9e;
+	outline: 1;
+}
