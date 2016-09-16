@@ -23,11 +23,10 @@
           <td><%= house.city %>
           </td>
           <td align="center">
-            <%= @recommended_houses.price %>
+            <%= house.price %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= will_paginate @recommended_houses, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
 <% end %>

@@ -2,13 +2,11 @@ class HomeController < ApplicationController
 
   def home
     if (current_user && current_user.owner?)
-      #@recommendations for house and users will go here!
       @recommended_houses = find_house_recommendations
+      @recommended_users = find_user_recommendations
 
     elsif current_user
       @recommended_houses = find_house_recommendations
-      #@recommendations for just houses will go here!
-
     else
       redirect_to login_path
     end
@@ -24,13 +22,55 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def find_user_recommendations
+    #return a list of recommended users for a house based on their preferences
+    all_users = User.all
+    recommended_users = Array.new
+    all_users.each do |u|
+      matches = find_num_of_user_matches(u)
+      #num of matches for a user to show up, will probably increase
+      if (matches > 4)
+          recommended_users << u
+      end
+    end
+    return recommended_users
+  end
+
+  def find_num_of_user_matches(user)
+    matches = 0
+    if (current_user.houses.active == [])
+      return matches
+    end
+    house = current_user.houses.active.first
+    if (user.gender_pref == house.gender)
+      matches += 1
+    end
+    if (user.neighborhood_pref == house.neighborhood)
+      matches += 1
+    end
+    if (user.season_pref == house.season)
+      matches += 1
+    end
+    if (user.smoking_pref == house.smoking)
+      matches += 1
+    end
+    if (user.drinking_pref == house.drinking)
+      matches += 1
+    end
+    if (user.price_limit_pref > house.price)
+      matches += 1
+    end
+    return matches
+  end
+
+
   def find_house_recommendations
-    # return a list of recommended house IDs for a user
-    # based on their preferences and render houses matching those ids
+    # return a list of recommended houses for a user based on their preferences
     all_houses = House.all
     recommended_houses = Array.new
     all_houses.each do |h|
-      matches = find_num_of_matches(h)
+      matches = find_num_of_house_matches(h)
       #num of matches for a house to show up, will probably increase
       #when we get more houses in system
       if (matches > 4) 
@@ -40,24 +80,24 @@ class HomeController < ApplicationController
     return recommended_houses
   end
 
-  def find_num_of_matches(house)
+  def find_num_of_house_matches(house)
     matches = 0
-    if (current_user.Preference.gender_pref == house.gender)
+    if (current_user.preference.gender_pref == house.gender)
       matches += 1
     end
-    if (current_user.Preference.neighborhood_pref == house.neighborhood)
+    if (current_user.preference.neighborhood_pref == house.neighborhood)
       matches += 1
     end
-    if (current_user.Preference.season_pref == house.season)
+    if (current_user.preference.season_pref == house.season)
       matches += 1
     end
-    if (current_user.Preference.smoking_pref == house.smoking)
+    if (current_user.preference.smoking_pref == house.smoking)
       matches += 1
     end
-    if (current_user.Preference.drinking_pref == house.drinking)
+    if (current_user.preference.drinking_pref == house.drinking)
       matches += 1
     end
-    if (current_user.Preference.price_limit_pref > house.price)
+    if (current_user.preference.price_limit_pref > house.price)
       matches += 1
     end
     return matches

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   mount_uploader :picture, PhotoUploader
 
   # Relationships
-  has_one :preference
+  has_one :preference, :dependent => :destroy
   has_many :houses
 
   accepts_nested_attributes_for :preference

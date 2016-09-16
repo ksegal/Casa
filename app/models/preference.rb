@@ -1,4 +1,5 @@
 class Preference < ActiveRecord::Base
+	attr_accessor :gender_pref
 
 	#Relationships
 	belongs_to :user

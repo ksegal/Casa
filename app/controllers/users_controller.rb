@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user.build_preference
   end
 
   # POST /users
