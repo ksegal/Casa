@@ -43,22 +43,22 @@ class HomeController < ApplicationController
       return matches
     end
     house = current_user.houses.active.first
-    if (user.gender_pref == house.gender)
+    if ((user.gender_pref != nil) && (user.gender_pref == house.gender))
       matches += 1
     end
-    if (user.neighborhood_pref == house.neighborhood)
+    if ((user.neighborhood_pref != nil) && (user.neighborhood_pref == house.neighborhood))
       matches += 1
     end
-    if (user.season_pref == house.season)
+    if ((user.season_pref != nil) && (user.season_pref == house.season))
       matches += 1
     end
-    if (user.smoking_pref == house.smoking)
+    if ((user.smoking_pref != nil) && (user.smoking_pref == house.smoking))
       matches += 1
     end
-    if (user.drinking_pref == house.drinking)
+    if ((user.drinking_pref != nil) && (user.drinking_pref == house.drinking))
       matches += 1
     end
-    if (user.price_limit_pref > house.price)
+    if ((user.price_limit_pref != nil) && (user.price_limit_pref > house.price))
       matches += 1
     end
     return matches
@@ -82,22 +82,22 @@ class HomeController < ApplicationController
 
   def find_num_of_house_matches(house)
     matches = 0
-    if (current_user.preference.gender_pref == house.gender)
+    if ((current_user.preference.gender_pref != nil) && (current_user.preference.gender_pref == house.gender))
       matches += 1
     end
-    if (current_user.preference.neighborhood_pref == house.neighborhood)
+    if ((current_user.preference.neighborhood_pref != nil) && (current_user.preference.neighborhood_pref == house.neighborhood))
       matches += 1
     end
-    if (current_user.preference.season_pref == house.season)
+    if ((current_user.preference.season_pref != nil) && (current_user.preference.season_pref == house.season))
       matches += 1
     end
-    if (current_user.preference.smoking_pref == house.smoking)
+    if ((current_user.preference.smoking_pref != nil) && (current_user.preference.smoking_pref == house.smoking))
       matches += 1
     end
-    if (current_user.preference.drinking_pref == house.drinking)
+    if ((current_user.preference.drinking_pref != nil) && (current_user.preference.drinking_pref == house.drinking))
       matches += 1
     end
-    if (current_user.preference.price_limit_pref > house.price)
+    if ((current_user.preference.price_limit_pref != nil) && (current_user.preference.price_limit_pref > house.price))
       matches += 1
     end
     return matches
