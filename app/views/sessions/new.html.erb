@@ -1,29 +1,49 @@
-<h3>Log In</h3>
-<div class="row">
-  <div class="small-7 columns">
-    <%= form_tag sessions_path do %>
-      <div class="control-group">
-        <%= label_tag :username %>
-        <div class="controls">
-          <%= text_field_tag :username, params[:username] %>
-        </div>
+<div class="container">
+  
+  <div class= "signup">
+    <div class="row logo">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= link_to root_path do %>
+          <%= image_tag("is_logo.png", size: "150x193", :class => "casa_logo") %>
+        <% end %>
       </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">  
+      <div class="col-md-4"></div>
+      <div class="col-md-4 login">
+        <ul class="nav nav-tabs tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#signin">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Signup', signup_path, :class=>"nav-link" %>
+          </li>
+        </ul>
+        <div class="signin_form" id="signin">
+          <%= form_tag sessions_path, :class => "form-horizontal" do %>
+            <div class="control-group">
+              <%= label_tag :username%>
+              <div class="controls">
+                <%= text_field_tag :username, params[:username] %>
+              </div>
+            </div>
 
-      <div class="control-group">
-        <%= label_tag :password %>
-        <div class="controls">
-          <%= password_field_tag :password %>
+            <div class="control-group">
+              <%= label_tag :password %>
+              <div class="controls">
+                <%= password_field_tag :password %>
+              </div>
+            </div>
+            
+            <div class="actions"><%= button_tag(type: "submit", class: "btn btn-default submit") do %>Sign In<% end %></div>
+          <% end %>
+
+
         </div>
       </div>
-      
-      <div class="actions"><%= submit_tag "Log In" %></div>
-    <% end %>
+      <div class="col-md-4"></div>
+    </div>
   </div>
 </div>
-
-<!-- in the future, will have this link on the second accordian tab and link to there! need to do this on the sign up page to link to login tab as well -->
-<ul>
-
-<li><strong><%= link_to 'Signup', signup_path %></strong></li>
-
-</ul>  
