@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Seller</th>
       <th>Neighborhood</th>
       <th>Price</th>
       <th>Street 1</th>
@@ -13,29 +13,15 @@
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th>Active</th>
       <th>Season</th>
-      <th>Gender</th>
-      <th>Smoking</th>
-      <th>Drinking</th>
-      <th>Pets allowed</th>
-      <th>Furnished</th>
-      <th>Bath</th>
-      <th>Type</th>
-      <th>Laundry</th>
-      <th>Utilities included</th>
-      <th>Description</th>
-      <th>Parking</th>
-      <th>Num of bedrooms</th>
-      <th>Num of bathrooms</th>
-      <th>Private room</th>
-      <th>Private bath</th>
+      <th>Bedrooms</th>
+      <th>Bathrooms</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @houses.each do |house| %>
+    <% @active_houses.each do |house| %>
       <tr>
         <td><%= house.user_id %></td>
         <td><%= house.neighborhood %></td>
@@ -45,23 +31,9 @@
         <td><%= house.city %></td>
         <td><%= house.state %></td>
         <td><%= house.zip %></td>
-        <td><%= house.active %></td>
         <td><%= house.season %></td>
-        <td><%= house.gender %></td>
-        <td><%= house.smoking %></td>
-        <td><%= house.drinking %></td>
-        <td><%= house.pets_allowed %></td>
-        <td><%= house.furnished %></td>
-        <td><%= house.bath %></td>
-        <td><%= house.type %></td>
-        <td><%= house.laundry %></td>
-        <td><%= house.utilities_included %></td>
-        <td><%= house.description %></td>
-        <td><%= house.parking %></td>
         <td><%= house.num_of_bedrooms %></td>
         <td><%= house.num_of_bathrooms %></td>
-        <td><%= house.private_room %></td>
-        <td><%= house.private_bath %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
         <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>

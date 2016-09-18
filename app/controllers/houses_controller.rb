@@ -5,6 +5,7 @@ class HousesController < ApplicationController
   # GET /houses.json
   def index
     @houses = House.all
+    @active_houses = House.active
   end
 
   # GET /houses/1
@@ -15,10 +16,12 @@ class HousesController < ApplicationController
   # GET /houses/new
   def new
     @house = House.new
+    @house.pictures.build
   end
 
   # GET /houses/1/edit
   def edit
+    @house.pictures.build
   end
 
   # POST /houses
@@ -31,6 +34,7 @@ class HousesController < ApplicationController
         format.html { redirect_to @house, notice: 'House was successfully created.' }
         format.json { render :show, status: :created, location: @house }
       else
+        @house.pictures.build
         format.html { render :new }
         format.json { render json: @house.errors, status: :unprocessable_entity }
       end
@@ -69,6 +73,6 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:user_id, :neighborhood, :price, :street_1, :street_2, :city, :state, :zip, :active, :season, :gender, :smoking, :drinking, :pets_allowed, :furnished, :bath, :type, :laundry, :utilities_included, :description, :parking, :num_of_bedrooms, :num_of_bathrooms, :private_room, :private_bath)
+      params.require(:house).permit(:user_id, :neighborhood, :price, :street_1, :street_2, :city, :state, :zip, :active, :season, :gender, :smoking, :drinking, :pets_allowed, :furnished, :bath, :type, :laundry, :utilities_included, :description, :parking, :num_of_bedrooms, :num_of_bathrooms, :private_room, :private_bath, pictures_attributes: [:id, :house_id, :picture])
     end
 end

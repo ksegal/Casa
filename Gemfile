@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
+<<<<<<< HEAD
  #Adding Bootstrap
  gem 'bootstrap', '~> 4.0.0.alpha4'
  gem 'sprockets-rails', :require => 'sprockets/railtie'
@@ -33,6 +34,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  source 'https://rails-assets.org' do
  	gem 'rails-assets-tether', '>= 1.1.0'
  end
+=======
+# image uploader
+gem 'carrierwave'
+>>>>>>> 96ae30de3f25a893e98111164a1d20418d92b753
 
 # Use Unicorn as the app server
 # gem 'unicorn'
