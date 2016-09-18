@@ -21,9 +21,10 @@ class House < ActiveRecord::Base
 	validates_inclusion_of :state, in: STATES_LIST.map{|key, value| value}, message: "is not an option"
 
 	# # Callbacks
-	# before_save :make_owner
+	before_save :make_owner
 
-	# def make_owner
-	# 	self.user.is_owner = true
-	# end
+	def make_owner
+		self.user.is_owner = true
+		self.user.save
+	end
 end

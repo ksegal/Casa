@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_login, except: [:show]
   # GET /houses
   # GET /houses.json
   def index
@@ -73,6 +73,11 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
+      set_user_id
       params.require(:house).permit(:user_id, :neighborhood, :price, :street_1, :street_2, :city, :state, :zip, :active, :season, :gender, :smoking, :drinking, :pets_allowed, :furnished, :bath, :type, :laundry, :utilities_included, :description, :parking, :num_of_bedrooms, :num_of_bathrooms, :private_room, :private_bath, pictures_attributes: [:id, :house_id, :picture])
+    end
+
+    def set_user_id
+      params[:house][:user_id] = current_user.id
     end
 end
