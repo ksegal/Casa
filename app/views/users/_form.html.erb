@@ -1,4 +1,6 @@
+
 <%= form_for(@user) do |f| %>
+  
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,7 +12,7 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="col-md-6">
   <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
@@ -39,6 +41,8 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  </div>
+  <div class="col-md-6">
   <div class="field">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
@@ -65,6 +69,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn btn-default submit' %>
+  </div>
   </div>
 <% end %>
