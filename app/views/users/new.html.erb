@@ -1,5 +1,31 @@
-<h1>New User</h1>
+<div class="container">
+	<div class="create_account">
+		<div class="row logo">
+	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+	        <%= link_to root_path do %>
+	          <%= image_tag("is_logo.png", size: "150x193", :class => "casa_logo") %>
+        <% end %>
+     	</div>
+       <div class="col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 login info">
+				<ul class="nav nav-tabs tabs">
+		          <li class="nav-item">
+		            <%= link_to 'Log In', login_path, :class=>"nav-link" %>
+		          </li>
+		          <li class="nav-item">
+		            <%= link_to 'Create Account', signup_path, :class=>"nav-link active" %>
+		          </li>
+		        </ul>
+		        <div class="account_form">
+					<%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</div>

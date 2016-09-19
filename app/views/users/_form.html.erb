@@ -12,6 +12,7 @@
   <% end %>
 
   <% if controller.action_name == 'new' || controller.action_name == 'create' %>
+    <div class="col-md-6">
     <div class="field">
       <%= f.label :username %><br>
       <%= f.text_field :username %>
@@ -49,6 +50,8 @@
     <%= f.label :fb_link %><br>
     <%= f.text_field :fb_link %>
   </div>
+  </div>
+  <div class="col-md-6">
   <div class="field">
     <%= f.label :picture %><br>
     <%= f.file_field :picture %>
@@ -70,37 +73,38 @@
     <!--Nested attributes form for preferences of a user -->
     <%= f.fields_for :preference do |ff| %>
       <div>
-        <%= ff.label :neighborhood_pref %>
+        <%= ff.label :neighborhood_pref %><br>
         <%= ff.select(:neighborhood_pref, Preference::NEIGHBORHOODS_LIST, prompt: "Select...") %>
       </div>
       <div>
-        <%= ff.label :gender_pref %>
+        <%= ff.label :gender_pref %><br>
         <%= ff.select(:gender_pref, Preference::GENDERS_LIST, prompt: "Select...") %>
       </div>
       <div>
-        <%= ff.label :price_limit_pref %>
+        <%= ff.label :price_limit_pref %><br>
         <%= ff.text_field :price_limit_pref %>
       </div>
       <div>
-        <%= ff.label :room_pref %>
+        <%= ff.label :room_pref %><br>
         <%= ff.select(:room_pref, Preference::ROOMS_LIST, prompt: "Select...") %>
       </div>
       <div>
-        <%= ff.label :season_pref %>
+        <%= ff.label :season_pref %><br>
         <%= ff.select(:season_pref, Preference::SEASONS_LIST, prompt: "Select...") %>
       </div>
       <div>
-        <%= ff.label :smoking_pref %>
+        <%= ff.label :smoking_pref %><br>
         <%= ff.check_box :smoking_pref %>
       </div>
       <div>
-        <%= ff.label :drinking_pref %>
+        <%= ff.label :drinking_pref %><br>
         <%= ff.check_box :drinking_pref %>
       </div>
     <% end %>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn btn-default submit' %>
+  </div>
   </div>
 <% end %>
