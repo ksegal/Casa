@@ -24,30 +24,25 @@ body{
 	border-radius: 10px;
 }
 
-
 .container{
 
 	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
+	overflow: hidden;
 
 }
 
-.signup{
+.signup, .create_account{
 	margin-top: 12.5%;
 
 }
 
 .casa_logo{
 	
-	margin-left: 35%;
+	margin-left: 30%;
 	margin-bottom: 20px;
 }
 
-.login{
-	margin-left: 35%;
 
-}
 
 .signin_form{
 	padding-left: 22%;
@@ -62,6 +57,7 @@ body{
 .actions{
 	padding-top: 20px;
 	padding-left: 60%;
+	padding-bottom: 20px;
 }
 
 .control-group{
@@ -71,6 +67,15 @@ body{
 .submit{
 	background: #ffde9e;
 	outline: 1;
+}
+
+
+.account_form{
+	padding-top: 20px;
+}
+
+.field{
+	padding-top: 10px;
 }
 
 .img-circle {
@@ -107,3 +112,4 @@ input, button, select, textarea {
 	border-radius: 0;
 	width: 100px;
 }
+

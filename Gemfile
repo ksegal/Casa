@@ -38,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # image uploader
 gem 'carrierwave'
 
+#Wizard Form Gem
+gem 'wicked'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
