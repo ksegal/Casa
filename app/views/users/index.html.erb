@@ -37,103 +37,107 @@
         <div class="card">
           <div class="card-block">
             <form name="user_search_filters">
-              <h6><center>Filters</center></h6>
+              <h5><center>Filters</center></h5>
               <hr>
               <div class="row">
-                <div class="col-xs-6">
-                  <p class="user_filter">Neighborhood:</p>
+                <div class="col-xs-5">
+                  <p class="user_filter">Neighborhood</p>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                   <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Bloomfield">Bloomfield</option>
+                    <option value="Downtown">Downtown</option>
+                    <option value="East Liberty">East Liberty</option>
+                    <option value="Highland Park">Highland Park</option>
+                    <option value="Homestead">Homestead</option>
+                    <option value="North Side">North Side</option>
+                    <option value="Oakland">Oakland</option>
+                    <option value="Point Breeze">Point Breeze</option>
+                    <option value="Shadyside">Shadyside</option>
+                    <option value="South Side">South Side</option>
+                    <option value="Squirrel Hill">Squirrel Hill</option>
+                    <option value="Strip District">Strip District</option>
                   </select>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-xs-6">
-                  <p class="user_filter">Gender:</p>
+                <div class="col-xs-5">
+                  <p class="user_filter">Gender</p>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                 <select>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                  <option value="" disabled selected="selected">Select...</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Not Specified">Not Specified</option>
                 </select>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-xs-6">
-                  <p class="user_filter">Season:</p>
+                <div class="col-xs-5">
+                  <p class="user_filter">Season</p>
                 </div>
-                <div class="col-xs-1">
-                  <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                <div class="col-xs-2">
+                  <select width="100px">
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Fall">Fall</option>
+                    <option value="Year">Year</option>
                   </select>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-xs-6">
-                  <p class="user_filter">Smoking?:</p>
+                <div class="col-xs-5">
+                  <p class="user_filter">Smoking?</p>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                   <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
                   </select>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-xs-6">
-                  <p class="user_filter">Drinking?:</p>
+                <div class="col-xs-5">
+                  <p class="user_filter">Drinking?</p>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                   <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
                   </select>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-xs-6">
-                  <p class="user_filter">Room:</p>
+                <div class="col-xs-5">
+                  <p class="user_filter">Room</p>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-2">
                   <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="No Preference">No Preference</option>
                   </select>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-5">
                   <p class="user_filter">Price Limit:</p>
                 </div>
-                <div class="col-xs-1">
-                  <select>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
+                <div class="col-xs-2">
+                  <input type="text" width="100px">
                 </div>
               </div>
 
@@ -144,8 +148,5 @@
         </div>
       </div>
     </div>
-
-
-<%= link_to 'New User', new_user_path %>
 
 <% end %>

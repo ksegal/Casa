@@ -101,3 +101,9 @@ body{
 	padding-bottom: 30px;
 }
 
+input, button, select, textarea {
+	margin: 0;
+	line-height: inherit;
+	border-radius: 0;
+	width: 100px;
+}
