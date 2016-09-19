@@ -1,17 +1,19 @@
 <!--code for nav bar goes here! -->
 <nav class="navbar">
-  <%= link_to(image_tag('is_logo.png', :size => "70x70", :style => "padding-top:50px;", :style => "padding-left:15px;"),
-            home_path,{ :class=> "brand-logo left" }) %>
   <ul class="nav navbar-nav">
     <li class="nav-item">
-      <%= link_to "All Homes", houses_path %>
+      <%= link_to(image_tag('is_logo.png', :size => "70x70", :style => "padding:0px 0px 0px 20px;"),
+              home_path,{ :class=> "brand-logo left" }) %>
     </li>
     <li class="nav-item">
-      <%= link_to "All People", users_path %>
+      <%= link_to "All Homes", houses_path, { :class=>"nav-link", :style => "padding:10px 0px 10px 15px;" } %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "All People", users_path, { :class=>"nav-link", :style => "padding:10px 0px 10px 15px;" } %>
     </li>
   </ul>
-  <ul class="right">
-  	<li><%= link_to "Your Account", user_path(current_user.id) %></li>
-  	<li><%= link_to 'Logout', logout_path %></li>
+  <ul class="nav navbar-nav pull-xs-right">
+  	<li class="nav-item"><%= link_to "Your Account", user_path(current_user.id), { :class=>"nav-link", :style => "padding:10px 0px 10px 15px;" } %></li>
+  	<li class="nav-item"><%= link_to 'Logout', logout_path, { :class=>"nav-link", :style => "padding:10px 30px 10px 15px;" } %></li>
   </ul>
 </nav>
