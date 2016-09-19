@@ -11,18 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <% if controller.action_name == 'new' || controller.action_name == 'create' %>
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <% end %>
  <!-- <div class="field">
      f.label  is_admin <br>
      f.check_box  is_admin 
@@ -53,7 +55,7 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.select(:gender, User::GENDER_LIST, prompt: "Select...") %>
   </div>
   <!-- Not a field that we will allow user to check. System will change this automatically once they add a house 
   <div class="field">
@@ -69,11 +71,11 @@
     <%= f.fields_for :preference do |ff| %>
       <div>
         <%= ff.label :neighborhood_pref %>
-        <%= ff.text_field :neighborhood_pref %>
+        <%= ff.select(:neighborhood_pref, Preference::NEIGHBORHOODS_LIST, prompt: "Select...") %>
       </div>
       <div>
         <%= ff.label :gender_pref %>
-        <%= ff.text_field :gender_pref %>
+        <%= ff.select(:gender_pref, Preference::GENDERS_LIST, prompt: "Select...") %>
       </div>
       <div>
         <%= ff.label :price_limit_pref %>
@@ -81,19 +83,19 @@
       </div>
       <div>
         <%= ff.label :room_pref %>
-        <%= ff.text_field :room_pref %>
+        <%= ff.select(:room_pref, Preference::ROOMS_LIST, prompt: "Select...") %>
       </div>
       <div>
         <%= ff.label :season_pref %>
-        <%= ff.text_field :season_pref %>
+        <%= ff.select(:season_pref, Preference::SEASONS_LIST, prompt: "Select...") %>
       </div>
       <div>
         <%= ff.label :smoking_pref %>
-        <%= ff.text_field :smoking_pref %>
+        <%= ff.check_box :smoking_pref %>
       </div>
       <div>
         <%= ff.label :drinking_pref %>
-        <%= ff.text_field :drinking_pref %>
+        <%= ff.check_box :drinking_pref %>
       </div>
     <% end %>
 

@@ -14,8 +14,6 @@
 
 @import "bootstrap";
 
-@import "bootstrap";
-
 body{
 	background-image: url("background_web.jpg");
 	background-size: cover;
@@ -74,3 +72,32 @@ body{
 	background: #ffde9e;
 	outline: 1;
 }
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.contact_info {
+	font-size: x-small;
+	display: inline;
+}
+
+.card-text:last-child {
+	font-size: small;
+}
+
+.contact_icon {
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+
+.card-title {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.card-text {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
