@@ -1,49 +1,152 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<% if @users.empty? %>
+  <h5><center><i>There are currently no users to view. Please check back again!</i></center></h5>
+<% else %>
+    <div id="main-container" class="container-fluid">
+      <div id="main content" class="col-xs-9">
+      <% @users.each do |user| %>
+        <div class="row">
+          <div class="card">
+          <div class="card-block">
+            <div class="col-xs-2">
+              <% if user.picture.blank? %>
+                <%= image_tag 'empty_user_picture.png', :class => "img-circle", size: "100x100", class: "left" %>
+              <% else %>
+                <%= image_tag user.picture, :class => "img-circle", size: "100x100" %>
+              <% end %>
+            </div>
+            <div class="col-xs-2">     
+              <h4 class="card-title"><%= user.proper_name %></h4>
+            </div>
+            <div class="col-xs-5">
+              <p class="card-text"><%= user.description %></p>
+            </div>
+            <div class="col-xs-2">
+              <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "23x20" %><p class="contact_info"><%= user.email %></p><br>
+              <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "23x20" %><p class="contact_info"><%= user.phone %></p><br>
+              <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "23x20" %><p class="contact_info"><%= user.fb_link %></p>
+            </div>
+          </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      
+      <div id="sidebar" class="col-xs-3">
+        <div class="card">
+          <div class="card-block">
+            <form name="user_search_filters">
+              <h5><center>Filters</center></h5>
+              <hr>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Neighborhood</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Bloomfield">Bloomfield</option>
+                    <option value="Downtown">Downtown</option>
+                    <option value="East Liberty">East Liberty</option>
+                    <option value="Highland Park">Highland Park</option>
+                    <option value="Homestead">Homestead</option>
+                    <option value="North Side">North Side</option>
+                    <option value="Oakland">Oakland</option>
+                    <option value="Point Breeze">Point Breeze</option>
+                    <option value="Shadyside">Shadyside</option>
+                    <option value="South Side">South Side</option>
+                    <option value="Squirrel Hill">Squirrel Hill</option>
+                    <option value="Strip District">Strip District</option>
+                  </select>
+                </div>
+              </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Password digest</th>
-      <th>Is admin</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Fb link</th>
-      <th>Picture</th>
-      <th>Gender</th>
-      <th>Is owner</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Gender</p>
+                </div>
+                <div class="col-xs-2">
+                <select>
+                  <option value="" disabled selected="selected">Select...</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Not Specified">Not Specified</option>
+                </select>
+                </div>
+              </div>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= user.is_admin %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.fb_link %></td>
-        <td><%= user.picture %></td>
-        <td><%= user.gender %></td>
-        <td><%= user.is_owner %></td>
-        <td><%= user.description %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Season</p>
+                </div>
+                <div class="col-xs-2">
+                  <select width="100px">
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Fall">Fall</option>
+                    <option value="Year">Year</option>
+                  </select>
+                </div>
+              </div>
 
-<br>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Smoking?</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
+              </div>
 
-<%= link_to 'New User', new_user_path %>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Drinking?</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Room</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="No Preference">No Preference</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Price Limit:</p>
+                </div>
+                <div class="col-xs-2">
+                  <input type="text" width="100px">
+                </div>
+              </div>
+
+              <center><button type="submit">Apply Filters</button></center>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% end %>

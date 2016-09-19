@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root :to => 'home#home'
 
   # Authentication routes
+  get 'home' => 'home#home', as: :home
   get 'user/edit' => 'users#edit', as: :edit_current_user
   get 'signup' => 'users#new', as: :signup
   get 'logout' => 'sessions#destroy', as: :logout

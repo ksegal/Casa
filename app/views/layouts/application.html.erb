@@ -7,11 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav>
-    <%= render 'partials/nav' %>
-  </nav>
+	<% if logged_in? %>
+		<nav>
+	    	<%= render 'partials/nav' %>
+	  	</nav>
+  	<% end %>
 
 	<%= yield %>
 
 </body>
+<% if logged_in? %>
+	<footer>
+		<%= render 'partials/footer' %>
+	</footer>
+<% end %>
+
 </html>

@@ -14,8 +14,6 @@
 
 @import "bootstrap";
 
-@import "bootstrap";
-
 body{
 	background-image: url("background_web.jpg");
 	background-size: cover;
@@ -71,6 +69,7 @@ body{
 	outline: 1;
 }
 
+
 .account_form{
 	padding-top: 20px;
 }
@@ -78,3 +77,39 @@ body{
 .field{
 	padding-top: 10px;
 }
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.contact_info {
+	font-size: x-small;
+	display: inline;
+}
+
+.card-text:last-child {
+	font-size: small;
+}
+
+.contact_icon {
+	padding-right: 10px;
+	padding-bottom: 5px;
+}
+
+.card-title {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.card-text {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+input, button, select, textarea {
+	margin: 0;
+	line-height: inherit;
+	border-radius: 0;
+	width: 100px;
+}
+
