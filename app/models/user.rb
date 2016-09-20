@@ -3,9 +3,16 @@ class User < ActiveRecord::Base
   # Use built-in rails support for password protection
   has_secure_password
 
+  mount_uploader :picture, PhotoUploader
+
   # Relationships
-  has_one :preference
+  has_one :preference, :dependent => :destroy
   has_many :houses
+
+  accepts_nested_attributes_for :preference
+
+  #array for Enumerated Values
+  GENDER_LIST = [['Male', 'Male'], ['Female', 'Female'], ['Not Specified', 'Not Specified']]
 
   # Scopes
   scope :by_gender,      -> { order(:gender) }
@@ -13,7 +20,7 @@ class User < ActiveRecord::Base
 
   # Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false}
-  validates :gender, inclusion: { in: %w[male female not_specified], message: "is not a recognized gender in system" }
+  validates_inclusion_of :gender, in: GENDER_LIST.map{|key, value| value}, message: "is not a valid option"
   validates_presence_of :password, on: :create 
   validates_presence_of :password_confirmation, on: :create 
   validates_confirmation_of :password, on: :create, message: "does not match"
@@ -32,6 +39,11 @@ class User < ActiveRecord::Base
 
   def proper_name
     "#{first_name} #{last_name}"
+  end
+
+  def owner?
+    return false if is_owner.nil?
+    is_owner == true
   end
 
   # Private methods

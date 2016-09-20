@@ -15,6 +15,7 @@ class House < ActiveRecord::Base
 
 	validates_presence_of :price, :neighborhood, :city, :state, :street_1, :description
 	
+	validates_numericality_of :price, greater_than_or_equal_to: 0
 	validates_inclusion_of :neighborhood, in: NEIGHBORHOODS_LIST.map{|key, value| value}, message: "is not a valid option"
 	validates :gender, inclusion: { in: %w[male female not_specified], message: "is not a recognized gender in system" }
 	validates_inclusion_of :season, in: SEASONS_LIST.map{|key, value| value}, message: "is not a valid option"

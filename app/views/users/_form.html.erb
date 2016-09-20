@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => { :multipart => true} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,18 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
+  <% if controller.action_name == 'new' || controller.action_name == 'create' %>
+    <div class="col-md-6">
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <% end %>
  <!-- <div class="field">
      f.label  is_admin <br>
      f.check_box  is_admin 
@@ -47,13 +50,15 @@
     <%= f.label :fb_link %><br>
     <%= f.text_field :fb_link %>
   </div>
+  </div>
+  <div class="col-md-6">
   <div class="field">
     <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
+    <%= f.file_field :picture %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.select(:gender, User::GENDER_LIST, prompt: "Select...") %>
   </div>
   <!-- Not a field that we will allow user to check. System will change this automatically once they add a house 
   <div class="field">
@@ -64,7 +69,42 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+
+    <!--Nested attributes form for preferences of a user -->
+    <%= f.fields_for :preference do |ff| %>
+      <div>
+        <%= ff.label :neighborhood_pref %><br>
+        <%= ff.select(:neighborhood_pref, Preference::NEIGHBORHOODS_LIST, prompt: "Select...") %>
+      </div>
+      <div>
+        <%= ff.label :gender_pref %><br>
+        <%= ff.select(:gender_pref, Preference::GENDERS_LIST, prompt: "Select...") %>
+      </div>
+      <div>
+        <%= ff.label :price_limit_pref %><br>
+        <%= ff.text_field :price_limit_pref %>
+      </div>
+      <div>
+        <%= ff.label :room_pref %><br>
+        <%= ff.select(:room_pref, Preference::ROOMS_LIST, prompt: "Select...") %>
+      </div>
+      <div>
+        <%= ff.label :season_pref %><br>
+        <%= ff.select(:season_pref, Preference::SEASONS_LIST, prompt: "Select...") %>
+      </div>
+      <div>
+        <%= ff.label :smoking_pref %><br>
+        <%= ff.check_box :smoking_pref %>
+      </div>
+      <div>
+        <%= ff.label :drinking_pref %><br>
+        <%= ff.check_box :drinking_pref %>
+      </div>
+    <% end %>
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn btn-default submit' %>
+  </div>
   </div>
 <% end %>

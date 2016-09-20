@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910003223) do
+ActiveRecord::Schema.define(version: 20160916053628) do
 
   create_table "houses", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160910003223) do
     t.boolean  "pets_allowed"
     t.boolean  "furnished"
     t.string   "bath"
-    t.string   "type"
+    t.string   "house_type"
     t.string   "laundry"
     t.boolean  "utilities_included"
     t.text     "description"
