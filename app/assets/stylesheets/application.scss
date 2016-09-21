@@ -17,6 +17,7 @@
 body{
 	background-image: url("background_web.jpg");
 	background-size: cover;
+	height: 100%;
 }
 
 .login{
@@ -148,3 +149,39 @@ h5{
 	color: white;
 }
 
+.footer_text{
+	font-family: "Muli:300", sans-serif;
+	color: white;
+}
+
+.wrap {
+	min-height: 100%;
+	height: auto !important;
+	margin: 0 auto -60px;
+	padding: 0 0 60px;
+}
+
+#footer{
+	background-color: #333333;
+	height: 80px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+#push{
+	height: 60px;
+}
+
+.main_container{
+	padding-top: 60px;
+}
+
+.fa{
+	color: white;
+	padding-left: 20px;
+	padding-top: 40px;
+}
+
+.footer-container{
+	display: inline-block;
+}

@@ -6,21 +6,30 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
+	<div class="wrap">
 	<% if logged_in? %>
-		<nav>
-	    	<%= render 'partials/nav' %>
-	  	</nav>
-  	<% end %>
+		
+			<nav>
+		    	<%= render 'partials/nav' %>
+		  	</nav>
+		  	<div class="main_container">
+		  		<%= yield %>
+		  	</div>
+		  	<div id="push"></div>
 
-	<%= yield %>
+  	<% end %>
+	</div>
+
+	<% if logged_in? %>
+		<div id="footer">
+			<%= render 'partials/footer' %>
+		</div>
+<% end %>
 
 </body>
-<% if logged_in? %>
-	<footer>
-		<%= render 'partials/footer' %>
-	</footer>
-<% end %>
+
 
 </html>
