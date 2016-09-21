@@ -15,12 +15,15 @@
 			<nav>
 		    	<%= render 'partials/nav' %>
 		  	</nav>
-		  	<div class="main_container">
-		  		<%= yield %>
-		  	</div>
+		  	
 		  	<div id="push"></div>
 
   	<% end %>
+
+  	<div class="main_container">
+		  <%= yield %>
+	</div>
+
 	</div>
 
 	<% if logged_in? %>
