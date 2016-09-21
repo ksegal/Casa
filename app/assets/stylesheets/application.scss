@@ -123,5 +123,28 @@ input, button, select, textarea {
 
 .navbar {
 	display:inline;
+	font-family: 'Muli', sans-serif;
+}
+
+.nav-link{
+	color: white;
+}
+
+.nav-link:hover{
+	color: #ffde9e;
+}
+
+.left_link{
+	font-size: 160%;
+}
+
+h1{
+	font-family: 'Muli', sans-serif;
+	color: white;
+}
+
+h5{
+	font-family: "Muli:300i", sans-serif;
+	color: white;
 }
 
