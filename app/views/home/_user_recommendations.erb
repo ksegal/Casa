@@ -34,7 +34,7 @@
             <p><%= @my_house.description %></p>
 
             <div id="edit_home">
-              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_house_path(@my_house) %></button>
+              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_house_path(@my_house), :class=>"submit-home" %></button>
             </div>
 
   			</div>
@@ -54,13 +54,22 @@
                 <p style="vertical-align:middle;"><%= user.proper_name %></p>
               </div>
             </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="rec_contact">
+                  <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to user.email %></p><br>
+                  <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(user.phone) %></p><br>
+                  <% if user.fb_link.blank? %>
+                  <% else %>
+                  <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= user.fb_link %></p><br>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
             
             <div class="row">
-              <div class="rec_contact">
-                <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.email %></p><br>
-                <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.phone %></p><br>
-                <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.fb_link %></p>
-              </div>
+              
             </div>
         	
           <% end %>
