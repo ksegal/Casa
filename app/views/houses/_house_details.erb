@@ -1,0 +1,83 @@
+<h4><strong>House Information </strong>
+  <% if current_user.id == @house.user_id %>
+    <%= link_to image_tag("u1257.png"), edit_house_path(@house) %>
+  <% end %>
+</h4>
+<br><br>
+<div class="col-xs-4">
+
+	<% if @house.pictures.first == nil %>
+    	<%= image_tag 'empty_house.jpg', size: "300x200", class: "left" %>
+  	<% else %>
+    	<%= image_tag @house.pictures.first.picture, width: "100%" %>
+  	<% end %>
+
+	<br><br>
+	<h3 style="text-align:left;float:left"><%= @house.neighborhood %></h3>
+    <h3 style="text-align:right;float:right"><%= number_to_currency(@house.price.to_i) %></h3>
+    <br>
+				<hr>
+    <p><%= "#{@house.street_1}, #{@house.city}, #{@house.state} #{@house.zip}" %></p>
+
+</div>
+<div class="col-xs-5">
+    
+    <p><strong>Specified Gender: </strong><%= @house.gender %></p>
+    <p><strong>Availability: </strong><%= @house.season %></p>
+    <p><strong>Smoking: </strong>
+      <% if @house.smoking == true %>
+        Allowed
+      <% else %>
+        Not Allowed
+      <% end %>
+      </p>
+    <p><strong>Drinking: </strong>
+    <% if @house.drinking == true %>
+      Allowed
+    <% else %>
+      Not Allowed
+    <% end %>
+    </p>
+    <p><strong>Pets: </strong>
+    <% if @house.pets_allowed == true %>
+      Allowed
+    <% else %>
+      Not Allowed
+    <% end %>
+    </p>
+    <p><strong>Furnished: </strong>
+      <% if @house.furnished == true %>
+      Yes
+      <% else %>
+        No
+      <% end %>
+    <p><strong>Bathroom: </strong>
+    <% if @house.private_bath == true %>
+      Private
+    <% else %>
+      Shared
+    <% end %>
+    </p>
+    <p><strong>Type: </strong><%= @house.house_type %></p>
+    <p><strong>Laundry: </strong><%= @house.laundry %></p>
+    <p><strong>Utilities Included: </strong>
+    <% if @house.utilities_included == true %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+    </p>
+
+</div>
+<div class="col-xs-3">
+  <i><%= @house.description %></i>
+  <p><strong>Parking: </strong>
+    <% if @house.parking == true %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+    </p>
+  <p><strong>Number of bedrooms: </strong><%= @house.num_of_bedrooms.to_i %></p>
+  <p><strong>Number of bathrooms: </strong><%= @house.num_of_bathrooms.to_i %></p>
+</div>
