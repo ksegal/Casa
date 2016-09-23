@@ -31,6 +31,10 @@ body{
 
 }
 
+.contact {
+	background-color: #d3d3d3;
+}
+
 .signup, .create_account{
 	margin-top: 12.5%;
 
@@ -81,6 +85,13 @@ body{
 
 .img-circle {
     border-radius: 50%;
+}
+
+.img-contact {
+	vertical-align: middle;
+    display: block;
+    margin: auto;
+    text-align: center;
 }
 
 .contact_info {
@@ -245,4 +256,9 @@ h5{
 
 h3{
 	font-family: 'Muli', sans-serif;
+}
+
+.custom-card{
+	padding-right: 20px;
+	padding-left: 20px;
 }
