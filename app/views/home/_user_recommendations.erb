@@ -1,81 +1,84 @@
 <!-- code for house recommendations goes here -->
 
-<% if @recommended_users.empty? %>
-  <h5><center><i>There are currently no recommended users</i></center></h5>
-
-<% else %>
-	<div class="row">
-    <div class="card">
-    	<div class="card-block">
-        <div class="col-xs-8">
-          <h2 class="card-title">Properties You're Selling</h2>
-  					<%= image_tag @my_house.pictures.first.picture, width: "100%" %><br><br>
-  					<h3 style="text-align:left;float:left"><%= @my_house.neighborhood %></h3>
-            <h3 style="text-align:right;float:right"><%= "$ #{@my_house.price.to_i}" %></h3>
-            <br>
-  					<hr>
-            <p><%= "#{@my_house.street_1}, #{@my_house.city}, #{@my_house.state} #{@my_house.zip}" %></p>
-            <p><strong>Availability: </strong><%= @my_house.season %></p>
-            <p><strong>Gender Preference: </strong><%= @my_house.gender %></p>
-            <p><strong>Smoking: </strong>
-              <% if @my_house.smoking == true %>
-                Allowed
-              <% else %>
-                Not Allowed
-              <% end %>
-              </p>
-            <p><strong>Drinking: </strong>
-            <% if @my_house.drinking == true %>
+<div class="row custom-card">
+  <div class="card">
+  	<div class="card-block">
+      <div class="col-xs-8">
+        <h2 class="card-title">Properties You're Selling</h2>
+          <% if @my_house.pictures.empty? %>
+            <%= image_tag 'empty_house.jpg', width: "100%" %><br><br>
+          <% else %>
+					 <%= image_tag @my_house.pictures.first.picture, width: "100%" %><br><br>
+					<% end %>
+          <h3 style="text-align:left;float:left"><%= @my_house.neighborhood %></h3>
+          <h3 style="text-align:right;float:right"><%= "$ #{@my_house.price.to_i}" %></h3>
+          <br>
+					<hr>
+          <p><%= "#{@my_house.street_1}, #{@my_house.city}, #{@my_house.state} #{@my_house.zip}" %></p>
+          <p><strong>Availability: </strong><%= @my_house.season %></p>
+          <p><strong>Gender Preference: </strong><%= @my_house.gender %></p>
+          <p><strong>Smoking: </strong>
+            <% if @my_house.smoking == true %>
               Allowed
             <% else %>
               Not Allowed
             <% end %>
             </p>
-            <p><%= @my_house.description %></p>
+          <p><strong>Drinking: </strong>
+          <% if @my_house.drinking == true %>
+            Allowed
+          <% else %>
+            Not Allowed
+          <% end %>
+          </p>
+          <p><%= @my_house.description %></p>
 
-            <div id="edit_home">
-              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_house_path(@my_house), :class=>"submit-home" %></button>
+          <div id="edit_home">
+            <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_house_path(@my_house), :class=>"submit-home" %></button>
+          </div>
+
+			</div>
+
+			<div class="col-xs-4">
+      <h6 class="card-title">Recommended Renters</h6>
+      <% if @recommended_users.empty? %>
+        <p><i>There are currently no recommended users. Please check back in a couple of minutes as more users express interest in housing!</i></p>
+      <% else %>
+    		<% @recommended_users.each do |user| %>
+          <div class="row">
+            <div class="col-xs-6">
+              <% if user.picture.blank? %>
+                <%= image_tag 'empty_user_picture.png', :class => "img-circle", width: "100%", class: "left" %>
+              <% else %>
+                <%= image_tag user.picture, :class => "img-circle", width: "100%" %>
+              <% end %>
             </div>
-
-  			</div>
-
-  			<div class="col-xs-4">
-          <h6 class="card-title">Recommended Renters</h6>
-      		<% @recommended_users.each do |user| %>
-            <div class="row">
-              <div class="col-xs-6">
-                <% if user.picture.blank? %>
-                  <%= image_tag 'empty_user_picture.png', :class => "img-circle", width: "100%", class: "left" %>
+            <div class="col-xs-6">
+              <p style="vertical-align:middle;"><%= user.proper_name %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="rec_contact">
+                <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to user.email %></p><br>
+                <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(user.phone) %></p><br>
+                <% if user.fb_link.blank? %>
                 <% else %>
-                  <%= image_tag user.picture, :class => "img-circle", width: "100%" %>
+                <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= user.fb_link %></p><br>
                 <% end %>
               </div>
-              <div class="col-xs-6">
-                <p style="vertical-align:middle;"><%= user.proper_name %></p>
-              </div>
             </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <div class="rec_contact">
-                  <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to user.email %></p><br>
-                  <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(user.phone) %></p><br>
-                  <% if user.fb_link.blank? %>
-                  <% else %>
-                  <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= user.fb_link %></p><br>
-                  <% end %>
-                </div>
-              </div>
 
-            </div>
+          </div>
+          
+          <div class="row">
             
-            <div class="row">
-              
-            </div>
-        	
-          <% end %>
-        </div>
+          </div>
+      	
+        <% end %>
+      <% end %>
       </div>
     </div>
   </div>
+</div>
 
-<% end %>

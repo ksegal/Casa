@@ -4,26 +4,93 @@
   <h5><center><i>There are currently no recommended houses</i></center></h5>
 <% else %>
 
-  <h5><center>Recommended Houses</center></h5><br>
-  <div class="divider"></div>
+  <div class="row custom-card">
+    <div class="card">
+      <div class="card-block">
+        <div class="col-xs-8">
+          <h2 class="card-title">Recommended Homes</h2>
+            <% if @recommended_houses.first.pictures.blank? %>
+              <%= image_tag 'empty_house.jpg', :class => "img", width: "100%" %><br><br>
+            <% else %>
+              <%= image_tag @recommended_houses.first.pictures.first.picture, width: "100%" %><br><br>
+            <% end %>
+            <h3 style="text-align:left;float:left"><%= @my_house.neighborhood %></h3>
+            <h3 style="text-align:right;float:right"><%= "$ #{@recommended_houses.first.price.to_i}" %></h3>
+            <br>
+            <hr>
+            <div class="col-xs-7">
+              <p><%= "#{@recommended_houses.first.street_1}, #{@recommended_houses.first.city}, #{@recommended_houses.first.state} #{@recommended_houses.first.zip}" %></p>
+              <p><strong>Availability: </strong><%= @recommended_houses.first.season %></p>
+              <p><strong>Gender Preference: </strong><%= @recommended_houses.first.gender %></p>
+              <p><strong>Smoking: </strong>
+                <% if @recommended_houses.first.smoking == true %>
+                  Allowed
+                <% else %>
+                  Not Allowed
+                <% end %>
+                </p>
+              <p><strong>Drinking: </strong>
+              <% if @recommended_houses.first.drinking == true %>
+                Allowed
+              <% else %>
+                Not Allowed
+              <% end %>
+              </p>
+              <p><%= @recommended_houses.first.description %></p>
+              <p><%= link_to 'View House', house_path(@recommended_houses.first)%></p>
+            </div>
 
-  <table class="hoverable">
-    <thead class="datagrid">
-      <tr>
-        <th>Address</th>
-        <th class="center">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @recommended_houses.each do |house| %>
-        <tr>
-          <td><%= house.city %>
-          </td>
-          <td align="center">
-            <%= house.price %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            <div class="col-xs-5 contact col-xs-offset-8">
+              <h4 class="img-contact">Contact</h4>
+              <% if @recommended_houses.first.user.picture.blank? %>
+                <%= image_tag 'empty_user_picture.png', :class => "img-contact", size: "50x50"%>
+              <% else %>
+                <%= image_tag @recommended_houses.first.user.picture, :class => "img-contact", size: "50x50" %><br>
+              <% end %>
+              <h4 class="img-contact"><%="#{@recommended_houses.first.user.username}"%></h4>
+            </div>
+            <div class="col-xs-5 contact">
+              <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to @recommended_houses.first.user.email %></p><br>
+              <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(@recommended_houses.first.user.phone) %></p><br>
+              <% if @recommended_houses.first.user.fb_link.blank? %>
+              <% else %>
+              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= @recommended_houses.first.user.fb_link %></p><br>
+              <% end %>
+            </div>
+
+        </div>
+
+        <div class="col-xs-4">
+          <% if @recommended_houses.drop(1).empty? %>
+          <% else %>
+          <h6 class="card-title">Also there's...</h6>
+          <% @recommended_houses.drop(1).each do |house| %>
+            <div class="row">
+              <div class="col-xs-6 contact">
+                <% if house.pictures.blank? %>
+                  <%= image_tag 'empty_house.jpg', :class => "img", width: "100%", class: "left" %>
+                <% else %>
+                  <%= image_tag house.pictures.first.picture, :class => "img", width: "100%" %>
+                <% end %>
+              </div>
+              <div class="col-xs-6">
+                <p style="vertical-align:middle;"><%= house.neighborhood %></p>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="rec_contact">
+                <p><%= "$ #{house.price.to_i}" %><br>
+                <%= house.street_1 %><br>
+                <%= "#{house.city}, #{house.state}" %>
+                <%= house.zip %></p>
+              </div>
+            </div>
+          
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

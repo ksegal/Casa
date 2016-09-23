@@ -32,6 +32,10 @@ body{
 
 }
 
+.contact {
+	background-color: #d3d3d3;
+}
+
 .signup, .create_account{
 	margin-top: 12.5%;
 
@@ -82,6 +86,13 @@ body{
 
 .img-circle {
     border-radius: 50%;
+}
+
+.img-contact {
+	vertical-align: middle;
+    display: block;
+    margin: auto;
+    text-align: center;
 }
 
 .contact_info {
@@ -150,11 +161,11 @@ input, button, select, textarea {
 }
 
 .user_dropdown select {
-	width: 130px;
+	width: 100px;
 }
 
 .user_dropdown input {
-	width: 130px;
+	width: 100px;
 }
 
 #new_home {
@@ -263,3 +274,7 @@ h3{
 	padding-bottom: 15px;
 }
 
+.custom-card{
+	padding-right: 20px;
+	padding-left: 20px;
+}

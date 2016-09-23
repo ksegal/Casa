@@ -16,12 +16,12 @@
                 <%= image_tag house.pictures.first.picture, :class => "img-circle", size: "100x100" %>
               <% end %>
             </div>
-            <div class="col-xs-2">     
+            <div class="col-xs-3">     
               <h4 class="house-title"><%= house.neighborhood %></h4>
               <p><%= house.street_1 %><br>
               <%= house.city%>, <%= house.state%></p>
             </div>
-            <div class="col-xs-5">
+            <div class="col-xs-4">
               <h6 class="house-title"><%= number_to_currency(house.price) %>/month</h6>
               <p><%= house.description%></p>
               <p><%= link_to 'View House', house_path(house)%></p>
@@ -45,10 +45,10 @@
           <div class="card-block">
             <form name="user_search_filters">
             <div class="user_dropdown">
-              <h5><center>Filters</center></h5>
+              <h4><center>Filters</center></h4>
               <hr>
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Neighborhood</p>
                 </div>
                 <div class="col-xs-2">
@@ -71,7 +71,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Gender</p>
                 </div>
                 <div class="col-xs-2">
@@ -85,7 +85,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Season</p>
                 </div>
                 <div class="col-xs-2">
@@ -101,7 +101,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Smoking?</p>
                 </div>
                 <div class="col-xs-2">
@@ -114,7 +114,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Drinking?</p>
                 </div>
                 <div class="col-xs-2">
@@ -127,7 +127,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Room</p>
                 </div>
                 <div class="col-xs-2">
@@ -141,7 +141,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Price Limit:</p>
                 </div>
                 <div class="col-xs-1">
