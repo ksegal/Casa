@@ -4,8 +4,9 @@ class HomeController < ApplicationController
     if (current_user && current_user.owner?)
       @recommended_houses = find_house_recommendations
       @recommended_users = find_user_recommendations
+      @my_house = current_user.houses.active.first
 
-    elsif current_user
+    elsif (current_user)
       @recommended_houses = find_house_recommendations
     else
       redirect_to login_path
@@ -39,26 +40,23 @@ class HomeController < ApplicationController
 
   def find_num_of_user_matches(user)
     matches = 0
-    if (current_user.houses.active == [])
-      return matches
-    end
     house = current_user.houses.active.first
-    if ((user.gender_pref != nil) && (user.gender_pref == house.gender))
+    if ((user.preference.gender_pref != nil) && (user.preference.gender_pref == house.gender))
       matches += 1
     end
-    if ((user.neighborhood_pref != nil) && (user.neighborhood_pref == house.neighborhood))
+    if ((user.preference.neighborhood_pref != nil) && (user.preference.neighborhood_pref == house.neighborhood))
       matches += 1
     end
-    if ((user.season_pref != nil) && (user.season_pref == house.season))
+    if ((user.preference.season_pref != nil) && (user.preference.season_pref == house.season))
       matches += 1
     end
-    if ((user.smoking_pref != nil) && (user.smoking_pref == house.smoking))
+    if ((user.preference.smoking_pref != nil) && (user.preference.smoking_pref == house.smoking))
       matches += 1
     end
-    if ((user.drinking_pref != nil) && (user.drinking_pref == house.drinking))
+    if ((user.preference.drinking_pref != nil) && (user.preference.drinking_pref == house.drinking))
       matches += 1
     end
-    if ((user.price_limit_pref != nil) && (user.price_limit_pref > house.price))
+    if ((user.preference.price_limit_pref != nil) && (user.preference.price_limit_pref > house.price))
       matches += 1
     end
     return matches

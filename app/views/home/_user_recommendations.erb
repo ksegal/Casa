@@ -1,0 +1,29 @@
+<!-- code for house recommendations goes here -->
+
+<% if @recommended_users.empty? %>
+  <h5><center><i>There are currently no recommended users</i></center></h5>
+<% else %>
+
+  <h5><center>Recommended Users</center></h5><br>
+  <div class="divider"></div>
+
+  <table class="hoverable">
+    <thead class="datagrid">
+      <tr>
+        <th>Name</th>
+        <th class="center">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recommended_users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %>
+          </td>
+          <td align="center">
+            <%= user.email %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

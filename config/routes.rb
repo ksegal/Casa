@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new', as: :signup
   get 'logout' => 'sessions#destroy', as: :logout
   get 'login' => 'sessions#new', as: :login
+  get 'house/new' => 'houses#new', as: :add_new_house
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
