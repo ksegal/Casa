@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% if !logged_in? then check_login  %><% end %>
+
 <% if @users.empty? %>
   <h5><center><i>There are currently no users to view. Please check back again!</i></center></h5>
 <% else %>
@@ -23,9 +25,9 @@
               <p class="card-text"><%= user.description %></p>
             </div>
             <div class="col-xs-2">
-              <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "23x20" %><p class="contact_info"><%= user.email %></p><br>
-              <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "23x20" %><p class="contact_info"><%= user.phone %></p><br>
-              <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "23x20" %><p class="contact_info"><%= user.fb_link %></p>
+              <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.email %></p><br>
+              <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.phone %></p><br>
+              <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.fb_link %></p>
             </div>
           </div>
           </div>
@@ -37,6 +39,7 @@
         <div class="card">
           <div class="card-block">
             <form name="user_search_filters">
+            <div class="user_dropdown">
               <h5><center>Filters</center></h5>
               <hr>
               <div class="row">
@@ -137,11 +140,12 @@
                   <p class="user_filter">Price Limit:</p>
                 </div>
                 <div class="col-xs-1">
-                  <input type="text" width="100px">
+                  <input type="text">
                 </div>
               </div>
 
               <center><button type="submit">Apply Filters</button></center>
+            </div>
             </form>
 
           </div>
