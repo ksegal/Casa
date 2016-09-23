@@ -1,4 +1,7 @@
-<h4><strong>Account Preferences </strong><%= link_to image_tag("u1257.png"), edit_user_path(@user) %></h4>
+<h4><strong>Account Preferences </strong>
+<% if current_user.id == @user.id %>
+    <%= link_to image_tag("u1257.png"), edit_user_path(@user) %> </h2>
+  <% end %></h4>
 
 <br><br>
 <p><strong>Neighborhood Preference: </strong><%= @user.preference.neighborhood_pref %></p>
