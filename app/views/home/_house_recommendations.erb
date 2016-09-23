@@ -15,7 +15,7 @@
               <%= image_tag @recommended_houses.first.pictures.first.picture, width: "100%" %><br><br>
             <% end %>
             <h3 style="text-align:left;float:left"><%= @my_house.neighborhood %></h3>
-            <h3 style="text-align:right;float:right"><%= number_to_currency(@recommended_houses.first.price.to_i) %></h3>
+            <h3 style="text-align:right;float:right"><%= "$ #{@recommended_houses.first.price.to_i}" %></h3>
             <br>
             <hr>
             <div class="col-xs-7">
@@ -54,7 +54,7 @@
               <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(@recommended_houses.first.user.phone) %></p><br>
               <% if @recommended_houses.first.user.fb_link.blank? %>
               <% else %>
-              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= recommended_houses.first.user.fb_link %></p><br>
+              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= @recommended_houses.first.user.fb_link %></p><br>
               <% end %>
             </div>
 
@@ -80,7 +80,7 @@
             
             <div class="row">
               <div class="rec_contact">
-                <p><%= number_to_currency(house.price) %><br>
+                <p><%= "$ #{house.price.to_i}" %><br>
                 <%= house.street_1 %><br>
                 <%= "#{house.city}, #{house.state}" %>
                 <%= house.zip %></p>

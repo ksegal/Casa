@@ -4,10 +4,10 @@
   <% end %>
 </h4>
 <br><br>
-<div class="col-xs-4">
+<div class="col-xs-6">
 
 	<% if @house.pictures.first == nil %>
-    	<%= image_tag 'empty_house.jpg', size: "300x200", class: "left" %>
+    	<%= image_tag 'empty_house.jpg', width: "100%", class: "left" %>
   	<% else %>
     	<%= image_tag @house.pictures.first.picture, width: "100%" %>
   	<% end %>
@@ -20,7 +20,7 @@
     <p><%= "#{@house.street_1}, #{@house.city}, #{@house.state} #{@house.zip}" %></p>
 
 </div>
-<div class="col-xs-5">
+<div class="col-xs-3">
     
     <p><strong>Specified Gender: </strong><%= @house.gender %></p>
     <p><strong>Availability: </strong><%= @house.season %></p>
@@ -70,7 +70,7 @@
 
 </div>
 <div class="col-xs-3">
-  <i><%= @house.description %></i>
+  <i><%= @house.description %></i><br><br>
   <p><strong>Parking: </strong>
     <% if @house.parking == true %>
       Yes

@@ -22,14 +22,15 @@
               <h4 class="card-title"><%= user.proper_name %></h4>
             </div>
             <div class="col-xs-5">
-              <p class="card-text"><%= user.description %></p>
+              <p><%= user.description %></p>
+              <p><%= link_to 'View User', user_path(user)%></p>
             </div>
             <div class="col-xs-2">
-              <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.email %></p><br>
-              <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.phone %></p><br>
+              <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to user.email %></p><br>
+              <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(user.phone) %></p><br>
               <% if user.fb_link.blank? %>
               <% else %>
-              <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.fb_link %></p>
+              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= user.fb_link %></p><br>
               <% end %>
             </div>
           </div>
@@ -43,10 +44,10 @@
           <div class="card-block">
             <form name="user_search_filters">
             <div class="user_dropdown">
-              <h5><center>Filters</center></h5>
+              <h4><center>Filters</center></h4>
               <hr>
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Neighborhood</p>
                 </div>
                 <div class="col-xs-2">
@@ -69,7 +70,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Gender</p>
                 </div>
                 <div class="col-xs-2">
@@ -83,7 +84,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Season</p>
                 </div>
                 <div class="col-xs-2">
@@ -99,7 +100,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Smoking?</p>
                 </div>
                 <div class="col-xs-2">
@@ -112,7 +113,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Drinking?</p>
                 </div>
                 <div class="col-xs-2">
@@ -125,7 +126,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Room</p>
                 </div>
                 <div class="col-xs-2">
@@ -139,7 +140,7 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                   <p class="user_filter">Price Limit:</p>
                 </div>
                 <div class="col-xs-1">
