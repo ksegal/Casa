@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @my_house = @user.houses.first
   end
 
   # GET /users/new
