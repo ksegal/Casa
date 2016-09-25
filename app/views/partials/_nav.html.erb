@@ -6,14 +6,14 @@
               home_path,{ :class=> "brand-logo left" }) %>
     </li>
     <li class="nav-item">
-      <%= link_to "All Homes", houses_path, { :class=>"nav-link", :style => "padding:10px 0px 10px 15px;" } %>
+      <%= link_to "All Homes", houses_path, { :class=>"nav-link top_nav left_link", :style => "padding:10px 0px 10px 15px;" } %>
     </li>
     <li class="nav-item">
-      <%= link_to "All People", users_path, { :class=>"nav-link", :style => "padding:10px 0px 10px 15px;" } %>
+      <%= link_to "All People", users_path, { :class=>"nav-link top_nav left_link", :style => "padding:10px 0px 10px 15px;" } %>
     </li>
   </ul>
   <ul class="nav navbar-nav pull-xs-right">
-  	<li class="nav-item"><%= link_to current_user.username, user_path(current_user.id), { :class=>"nav-link", :style => "padding:10px 0px 10px 15px;" } %></li>
-  	<li class="nav-item"><%= link_to 'Logout', logout_path, { :class=>"nav-link", :style => "padding:10px 30px 10px 15px;" } %></li>
+  	<li class="nav-item"><%= link_to "Your Account", user_path(current_user.id), { :class=>"nav-link top_nav", :style => "padding:10px 0px 10px 15px;" } %></li>
+  	<li class="nav-item"><%= link_to 'Logout', logout_path, { :class=>"nav-link top_nav", :style => "padding:10px 30px 10px 15px;" } %></li>
   </ul>
 </nav>

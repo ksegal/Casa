@@ -5,21 +5,28 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
+	<div class="wrap">
 	<% if logged_in? %>
-		<nav>
-	    	<%= render 'partials/nav' %>
-	  	</nav>
+		
+			<nav>
+		    	<%= render 'partials/nav' %>
+		  	</nav>
+		  	
+		  	<div id="push"></div>
+
   	<% end %>
 
-	<%= yield %>
+  	<div class="main_container">
+		  <%= yield %>
+	</div>
+
+	</div>
 
 </body>
-<% if logged_in? %>
-	<footer>
-		<%= render 'partials/footer' %>
-	</footer>
-<% end %>
+
 
 </html>

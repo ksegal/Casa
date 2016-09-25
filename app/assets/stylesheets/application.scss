@@ -17,6 +17,7 @@
 body{
 	background-image: url("background_web.jpg");
 	background-size: cover;
+	height: 100%;
 }
 
 .login{
@@ -68,6 +69,16 @@ body{
 	outline: 1;
 }
 
+
+.account_form{
+	padding-top: 20px;
+}
+
+.field{
+	padding-top: 10px;
+}
+
+
 .img-circle {
     border-radius: 50%;
 }
@@ -108,6 +119,7 @@ input, button, select, textarea {
 	border-radius: 0;
 }
 
+
 .account_form{
 	padding-top: 20px;
 }
@@ -146,4 +158,65 @@ input, button, select, textarea {
 
 #house-details {
 	border-left: thin solid #000000;
+	font-family: 'Muli', sans-serif;
+}
+
+
+.top_nav{
+	color: white;
+}
+
+.top_nav:hover{
+	color: #ffde9e;
+}
+
+.left_link{
+	font-size: 160%;
+}
+
+h1{
+	font-family: 'Muli', sans-serif;
+	color: white;
+}
+
+h5{
+	font-family: "Muli:300i", sans-serif;
+	color: white;
+}
+
+.footer_text{
+	font-family: "Muli:300", sans-serif;
+	color: white;
+}
+
+.wrap {
+	min-height: 100%;
+	height: auto !important;
+	margin: 0 auto -60px;
+	padding: 0 0 60px;
+}
+
+#footer{
+	background-color: #333333;
+	height: 80px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+#push{
+	height: 60px;
+}
+
+.main_container{
+	padding-top: 60px;
+}
+
+.fa{
+	color: white;
+	padding-left: 20px;
+	padding-top: 40px;
+}
+
+.footer-container{
+	display: inline-block;
 }
