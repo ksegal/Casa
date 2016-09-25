@@ -10,21 +10,28 @@
 </head>
 <body>
 	<div class="wrap">
-	<% if logged_in? %>
+		<% if logged_in? %>
+			
+				<nav>
+			    	<%= render 'partials/nav' %>
+			  	</nav>
+			  	
+			  	<div id="push"></div>
+
+	  	<% end %>
+
+	  	<div id="main" class="main_container">
+			  <%= yield %>
+		</div>
 		
-			<nav>
-		    	<%= render 'partials/nav' %>
-		  	</nav>
-		  	
-		  	<div id="push"></div>
-
-  	<% end %>
-
-  	<div class="main_container">
-		  <%= yield %>
-	</div>
 
 	</div>
+
+	<footer class="footer">
+
+		<%= render 'partials/footer' %>
+
+	</footer>
 
 </body>
 
