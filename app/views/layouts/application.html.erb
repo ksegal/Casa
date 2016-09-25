@@ -23,15 +23,19 @@
 	  	<div id="main" class="main_container">
 			  <%= yield %>
 		</div>
-		
+
 
 	</div>
 
-	<footer class="footer">
+	<% if logged_in? %>
 
-		<%= render 'partials/footer' %>
+		<footer class="footer">
 
-	</footer>
+			<%= render 'partials/footer' %>
+
+		</footer>
+
+	<% end %>
 
 </body>
 
