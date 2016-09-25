@@ -1,0 +1,22 @@
+<h4><strong>Account Preferences </strong><%= link_to image_tag("u1257.png"), edit_user_path(@user) %></h4>
+
+<br><br>
+<p><strong>Neighborhood Preference: </strong><%= @user.preference.neighborhood_pref %></p>
+<p><strong>Gender Preference: </strong><%= @user.preference.gender_pref %></p>
+<p><strong>Price Limit: </strong><%= "$ #{@user.preference.price_limit_pref.to_i}" %></p>
+<p><strong>Room Preference: </strong><%= @user.preference.room_pref %></p>
+<p><strong>Season Preference: </strong><%= @user.preference.season_pref %></p>
+<p><strong>Smoking: </strong>
+  <% if @user.preference.smoking_pref == true %>
+    Yes
+  <% else %>
+    No
+  <% end %>
+  </p>
+<p><strong>Drinking: </strong>
+<% if @user.preference.drinking_pref == true %>
+  Yes
+<% else %>
+  No
+<% end %>
+</p>

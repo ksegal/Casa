@@ -86,6 +86,12 @@ body{
 	padding-bottom: 5px;
 }
 
+.rec_contact {
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+}
+
 .card-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -116,4 +122,28 @@ input, button, select, textarea {
 
 .navbar {
 	display:inline;
+}
+
+.user_dropdown select {
+	width: 130px;
+}
+
+.user_dropdown input {
+	width: 130px;
+}
+
+#new_home {
+	padding: 10px 0px 10px 20px;
+}
+
+#contact_user {
+	padding-left: 10%;
+}
+
+#account-details {
+	border-right: thin solid #000000;
+}
+
+#house-details {
+	border-left: thin solid #000000;
 }
