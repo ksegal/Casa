@@ -13,7 +13,7 @@
               <% if house.pictures.blank? %>
                 <%= image_tag 'empty_house.jpg', :class => "img-circle", size: "100x100", class: "left" %>
               <% else %>
-                <%= image_tag house.picture, :class => "img-circle", size: "100x100" %>
+               <%= image_tag house.pictures.first.picture, :class => "img-circle", size: "100x100" %>
               <% end %>
             </div>
             <div class="col-xs-2">     
