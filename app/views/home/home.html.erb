@@ -1,32 +1,25 @@
 <!-- home page for users that are logged in -->
+<div id="new_home">
+  <button type="button" class="btn btn-warning"><%= link_to 'Add Your Home', add_new_house_path %></button>
+</div>
+<br>
 
+<% if current_user.owner? %>
+  <div id="main-container" class="container-fluid">
+    <div id="main content" class="col-xs-6">
+      <%= render 'user_recommendations' %>
+    </div>
+    
+    <div id="main content" class="col-xs-6">
+      <%= render 'house_recommendations' %>
+    </div>
+  </div>
 
-<h1><center>Welcome <%= current_user.username.capitalize %>!</center></h1>
-
-<% if @recommended_houses.empty? %>
-  <h5><center><i>There are currently no recommended houses</i></center></h5>
 <% else %>
+  <div id="main-container" class="container-fluid">
+    <div id="main content" class="col-xs-12">
+      <%= render 'house_recommendations' %>
+    </div>
+  </div>
 
-  <h5><center>Recommended Houses</center></h5><br>
-  <div class="divider"></div>
-
-  <table class="hoverable">
-    <thead class="datagrid">
-      <tr>
-        <th>Address</th>
-        <th class="center">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @recommended_houses.each do |house| %>
-        <tr>
-          <td><%= house.city %>
-          </td>
-          <td align="center">
-            <%= house.price %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 <% end %>

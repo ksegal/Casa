@@ -1,0 +1,25 @@
+<center>
+<% if @user.picture.blank? %>
+  <%= image_tag 'empty_user_picture.png', :class => "img-circle", size: "200x200", class: "middle" %>
+<% else %>
+  <%= image_tag @user.picture, :class => "img-circle", size: "200x200" %>
+<% end %>
+
+<br><br>
+<h2> <strong><%= @user.proper_name %></strong> <%= link_to image_tag("u1257.png"), edit_user_path(@user) %> </h2>
+<h4> <%= "(#{@user.username})" %> </h4>
+<br>
+<% if @user.gender == "Female" %>
+  <%= image_tag 'u1261.png' %>
+<% else %>
+  <%= image_tag 'male.png', size: "20x30" %>
+<% end %>
+</center>
+<br>
+<div id="contact_user">
+  <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= @user.email %></p><br>
+  <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= @user.phone %></p><br>
+  <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= @user.fb_link %></p>
+  <br><br>
+  <p><%= @user.description %></p>
+</div>

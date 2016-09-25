@@ -1,0 +1,64 @@
+<h4><strong>House Information </strong><%= link_to image_tag("u1257.png"), edit_house_path(@my_house) %></h4>
+<br><br>
+<div class="col-xs-7">
+
+	<% if @my_house.pictures.first == nil %>
+    	<%= image_tag 'empty_house.jpg', size: "300x200", class: "left" %>
+  	<% else %>
+    	<%= image_tag @my_house.pictures.first.picture, width: "100%" %>
+  	<% end %>
+
+	<br><br>
+	<h3 style="text-align:left;float:left"><%= @my_house.neighborhood %></h3>
+    <h3 style="text-align:right;float:right"><%= "$ #{@my_house.price.to_i}" %></h3>
+    <br>
+				<hr>
+    <p><%= "#{@my_house.street_1}, #{@my_house.city}, #{@my_house.state} #{@my_house.zip}" %></p>
+
+</div>
+<div class="col-xs-5">
+    
+    <p><strong>Specified Gender: </strong><%= @my_house.gender %></p>
+    <p><strong>Availability: </strong><%= @my_house.season %></p>
+    <p><strong>Smoking: </strong>
+      <% if @my_house.smoking == true %>
+        Allowed
+      <% else %>
+        Not Allowed
+      <% end %>
+      </p>
+    <p><strong>Drinking: </strong>
+    <% if @my_house.drinking == true %>
+      Allowed
+    <% else %>
+      Not Allowed
+    <% end %>
+    </p>
+    <p><strong>Pets: </strong>
+    <% if @my_house.pets_allowed == true %>
+      Allowed
+    <% else %>
+      Not Allowed
+    <% end %>
+    </p>
+    <p><strong>Furnished: </strong><%= @my_house.furnished %></p>
+    <p><strong>Bathroom: </strong>
+    <% if @my_house.private_bath == true %>
+      Private
+    <% else %>
+      Shared
+    <% end %>
+    </p>
+    <p><strong>Type: </strong><%= @my_house.house_type %></p>
+    <p><strong>Laundry: </strong><%= @my_house.laundry %></p>
+    <p><strong>Utilities Included: </strong>
+    <% if @my_house.utilities_included == true %>
+      Yes
+    <% else %>
+      No
+    <% end %>
+    </p>
+
+    <p><%= @my_house.description %></p>
+
+</div>

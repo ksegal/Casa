@@ -110,6 +110,8 @@
             <%= f.label :available %><br>
             <%= f.check_box :active %>
           </div>
+        <% else %>
+          <%= f.hidden_field :active, value: true %>
         <% end %>
         <div class="field">
           <%= f.label :parking_available %><br>
