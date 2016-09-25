@@ -34,5 +34,6 @@ class House < ActiveRecord::Base
 
 	def make_owner
 		self.user.is_owner = true
+		self.user.save!
 	end
 end
