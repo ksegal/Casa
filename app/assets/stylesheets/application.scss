@@ -17,7 +17,8 @@
 body{
 	background-image: url("background_web.jpg");
 	background-size: cover;
-	height: 100%;
+	min-height: 100%;
+	position: relative;
 }
 
 .login{
@@ -204,24 +205,31 @@ h5{
 
 .wrap {
 	min-height: 100%;
-	height: auto !important;
-	margin: 0 auto -60px;
 	padding: 0 0 60px;
 }
 
-#footer{
-	background-color: #333333;
-	height: 80px;
-	position: absolute;
-	bottom: 0;
+#main{
+	overflow: auto;
+}
+
+.footer{
+	position: fixed;
+	right: 0;
+	left: 0;
+	padding: 1rem;
+	bottom: 0px;
 	width: 100%;
+	height: 80px;
+	background-color: #333333;
 }
 
 .main_container{
 }
 
 .footer-container{
-	display: inline-block;
+	width: auto;
+	max-width: 680px;
+	padding: 0 15px;
 }
 
 .submit-home{
@@ -235,4 +243,12 @@ h5{
 
 .nav-link{
 	font-family: 'Muli', sans-serif;
+}
+
+.fa-copyright{
+	color: white;
+}
+
+.footer-row{
+	padding-bottom: 15px;
 }
