@@ -105,13 +105,15 @@ body{
 
 .rec_contact {
 	padding-top: 10px;
-	padding-left: 20px;
+	padding-left: 0px;
 	padding-bottom: 20px;
 }
 
 .card-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
+	font-family: 'Muli', sans-serif;
+	font-weight: 400;
 }
 
 .house-title {
@@ -234,5 +236,13 @@ h5{
 }
 
 .nav-link{
+	font-family: 'Muli', sans-serif;
+}
+
+.card{
+	padding: 20px;
+}
+
+h3{
 	font-family: 'Muli', sans-serif;
 }

@@ -34,7 +34,7 @@
             <p><%= @my_house.description %></p>
 
             <div id="edit_home">
-              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_house_path(@my_house) %></button>
+              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_house_path(@my_house), :class=>"submit-home" %></button>
             </div>
 
   			</div>
@@ -52,15 +52,18 @@
               </div>
               <div class="col-xs-6">
                 <p style="vertical-align:middle;"><%= user.proper_name %></p>
-              </div>
-            </div>
-            
-            <div class="row">
-              <div class="rec_contact">
+
+                <div class="rec_contact">
                 <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.email %></p><br>
                 <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.phone %></p><br>
                 <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= user.fb_link %></p>
               </div>
+              </div>
+
+            </div>
+            
+            <div class="row">
+              
             </div>
         	
           <% end %>
