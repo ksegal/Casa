@@ -26,8 +26,8 @@
             </div>
             <div class="col-xs-2">
               <i class="fa fa-envelope"></i><p class="fa_contact"><%= house.user.email %></p><br>
-              <i class="fa fa-phone"></i><p class="fa_contact"><%= house.user.phone %></p><br>
-              <% if house.pictures.blank? %>
+              <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(house.user.phone) %></p><br>
+              <% if house.user.fb_link.blank? %>
               <% else %>
               <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= house.user.fb_link %></p><br>
               <% end %>
