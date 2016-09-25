@@ -1,47 +1,159 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Houses</h1>
+<% if @active_houses.empty? %>
+  <h5><center><i>There are currently no available houses. Please check back again!</i></center></h5>
+<% else %>
+    <div id="main-container" class="container-fluid">
+      <div id="main content" class="col-xs-9">
+      <% @active_houses.each do |house| %>
+        <div class="row">
+          <div class="card">
+          <div class="card-block">
+            <div class="col-xs-2">
+              <% if house.pictures.blank? %>
+                <%= image_tag 'empty_house.jpg', :class => "img-circle", size: "100x100", class: "left" %>
+              <% else %>
+                <%= image_tag house.picture, :class => "img-circle", size: "100x100" %>
+              <% end %>
+            </div>
+            <div class="col-xs-2">     
+              <h4 class="house-title"><%= house.neighborhood %></h4>
+              <p><%= house.street_1 %><br>
+              <%= house.city%>, <%= house.state%></p>
+            </div>
+            <div class="col-xs-5">
+              <h6 class="house-title"><%= number_to_currency(house.price) %>/month</h6>
+            </div>
+            <div class="col-xs-2">
+              <i class="fa fa-envelope"></i><p class="fa_contact"><%= house.user.email %></p><br>
+              <i class="fa fa-phone"></i><p class="fa_contact"><%= house.user.phone %></p><br>
+              <% if house.pictures.blank? %>
+              <% else %>
+              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= house.user.fb_link %></p><br>
+              <% end %>
+            </div>
+          </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+      
+      <div id="sidebar" class="col-xs-3">
+        <div class="card">
+          <div class="card-block">
+            <form name="user_search_filters">
+            <div class="user_dropdown">
+              <h5><center>Filters</center></h5>
+              <hr>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Neighborhood</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Bloomfield">Bloomfield</option>
+                    <option value="Downtown">Downtown</option>
+                    <option value="East Liberty">East Liberty</option>
+                    <option value="Highland Park">Highland Park</option>
+                    <option value="Homestead">Homestead</option>
+                    <option value="North Side">North Side</option>
+                    <option value="Oakland">Oakland</option>
+                    <option value="Point Breeze">Point Breeze</option>
+                    <option value="Shadyside">Shadyside</option>
+                    <option value="South Side">South Side</option>
+                    <option value="Squirrel Hill">Squirrel Hill</option>
+                    <option value="Strip District">Strip District</option>
+                  </select>
+                </div>
+              </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Seller</th>
-      <th>Neighborhood</th>
-      <th>Price</th>
-      <th>Street 1</th>
-      <th>Street 2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Season</th>
-      <th>Bedrooms</th>
-      <th>Bathrooms</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Gender</p>
+                </div>
+                <div class="col-xs-2">
+                <select>
+                  <option value="" disabled selected="selected">Select...</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Not Specified">Not Specified</option>
+                </select>
+                </div>
+              </div>
 
-  <tbody>
-    <% @active_houses.each do |house| %>
-      <tr>
-        <td><%= house.user_id %></td>
-        <td><%= house.neighborhood %></td>
-        <td><%= house.price %></td>
-        <td><%= house.street_1 %></td>
-        <td><%= house.street_2 %></td>
-        <td><%= house.city %></td>
-        <td><%= house.state %></td>
-        <td><%= house.zip %></td>
-        <td><%= house.season %></td>
-        <td><%= house.num_of_bedrooms %></td>
-        <td><%= house.num_of_bathrooms %></td>
-        <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Season</p>
+                </div>
+                <div class="col-xs-2">
+                  <select width="100px">
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Fall">Fall</option>
+                    <option value="Year">Year</option>
+                  </select>
+                </div>
+              </div>
 
-<br>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Smoking?</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
+              </div>
 
-<%= link_to 'New House', new_house_path %>
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Drinking?</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Room</p>
+                </div>
+                <div class="col-xs-2">
+                  <select>
+                    <option value="" disabled selected="selected">Select...</option>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="No Preference">No Preference</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-5">
+                  <p class="user_filter">Price Limit:</p>
+                </div>
+                <div class="col-xs-1">
+                  <input type="text">
+                </div>
+              </div>
+
+              <center><button type="submit">Apply Filters</button></center>
+            </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% end %>

@@ -88,6 +88,12 @@ body{
 	display: inline;
 }
 
+.fa_contact {
+	font-size: x-small;
+	display: inline;
+	padding-left: 4px;
+}
+
 .card-text:last-child {
 	font-size: small;
 }
@@ -106,6 +112,10 @@ body{
 .card-title {
 	padding-top: 30px;
 	padding-bottom: 30px;
+}
+
+.house-title {
+	padding-top: 10px;
 }
 
 .card-text {
@@ -183,6 +193,9 @@ h5{
 	font-family: "Muli:300i", sans-serif;
 	color: white;
 }
+.price{
+	font-family: "Muli:300i", sans-serif;
+}
 
 .footer_text{
 	font-family: "Muli:300", sans-serif;
@@ -209,12 +222,6 @@ h5{
 
 .main_container{
 	padding-top: 60px;
-}
-
-.fa{
-	color: white;
-	padding-left: 20px;
-	padding-top: 40px;
 }
 
 .footer-container{
