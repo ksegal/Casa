@@ -11,7 +11,7 @@
           <div class="card-block">
             <div class="col-xs-2">
               <% if house.pictures.blank? %>
-                <%= image_tag 'empty_house.jpg', :class => "img-circle", size: "100x100", class: "left" %>
+                <%= image_tag 'empty_house.jpg', :class => "img", size: "100x100", class: "left" %>
               <% else %>
                <%= image_tag house.pictures.first.picture, :class => "img-circle", size: "100x100" %>
               <% end %>
@@ -23,9 +23,11 @@
             </div>
             <div class="col-xs-5">
               <h6 class="house-title"><%= number_to_currency(house.price) %>/month</h6>
+              <p><%= house.description%></p>
+              <p><%= link_to 'View House', house_path(house)%></p>
             </div>
             <div class="col-xs-2">
-              <i class="fa fa-envelope"></i><p class="fa_contact"><%= house.user.email %></p><br>
+              <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to house.user.email %></p><br>
               <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(house.user.phone) %></p><br>
               <% if house.user.fb_link.blank? %>
               <% else %>
