@@ -4,7 +4,7 @@
   <h5><center><i>There are currently no recommended houses</i></center></h5>
 <% else %>
 
-  <div class="row">
+  <div class="row custom-card">
     <div class="card">
       <div class="card-block">
         <div class="col-xs-8">
@@ -61,8 +61,10 @@
         </div>
 
         <div class="col-xs-4">
+          <% if @recommended_houses.drop(1).empty? %>
+          <% else %>
           <h6 class="card-title">Also there's...</h6>
-          <% @recommended_houses.each do |house| %>
+          <% @recommended_houses.drop(1).each do |house| %>
             <div class="row">
               <div class="col-xs-6 contact">
                 <% if house.pictures.blank? %>
@@ -85,6 +87,7 @@
               </div>
             </div>
           
+          <% end %>
           <% end %>
         </div>
       </div>
