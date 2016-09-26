@@ -41,12 +41,13 @@
             </div>
 
             <div class="col-xs-5 contact col-xs-offset-8">
-              <h4 style="center">Contact <%="#{@recommended_houses.first.user.username}"%></h4>
+              <h4 class="img-contact">Contact</h4>
               <% if @recommended_houses.first.user.picture.blank? %>
-                <%= image_tag 'empty_user_picture.png', :class => "img-contact", size: "50x50"%><br>
+                <%= image_tag 'empty_user_picture.png', :class => "img-contact", size: "50x50"%>
               <% else %>
                 <%= image_tag @recommended_houses.first.user.picture, :class => "img-contact", size: "50x50" %><br>
               <% end %>
+              <h4 class="img-contact"><%="#{@recommended_houses.first.user.username}"%></h4>
             </div>
             <div class="col-xs-5 contact">
               <i class="fa fa-envelope"></i><p class="fa_contact"><%= mail_to @recommended_houses.first.user.email %></p><br>
