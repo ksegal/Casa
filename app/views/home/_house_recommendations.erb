@@ -54,7 +54,7 @@
               <i class="fa fa-phone"></i><p class="fa_contact"><%= number_to_phone(@recommended_houses.first.user.phone) %></p><br>
               <% if @recommended_houses.first.user.fb_link.blank? %>
               <% else %>
-              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= recommended_houses.first.user.fb_link %></p><br>
+              <i class="fa fa-facebook-square"></i><p class="fa_contact"><%= @recommended_houses.first.user.fb_link %></p><br>
               <% end %>
             </div>
 
