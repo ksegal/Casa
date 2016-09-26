@@ -19,7 +19,10 @@
 <div id="contact_user">
   <%= image_tag 'u1176.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= @user.email %></p><br>
   <%= image_tag 'u1174.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= @user.phone %></p><br>
+  <% if @user.fb_link.blank? %>
+  <% else %>
   <%= image_tag 'u1172.png', :class => "contact_icon", display: "inline", size: "27x20" %><p class="contact_info"><%= @user.fb_link %></p>
+  <% end %>
   <br><br>
   <p><%= @user.description %></p>
 </div>
