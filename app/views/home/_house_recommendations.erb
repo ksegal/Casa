@@ -14,7 +14,7 @@
             <% else %>
               <%= image_tag @recommended_houses.first.pictures.first.picture, width: "100%" %><br><br>
             <% end %>
-            <h3 style="text-align:left;float:left"><%= @my_house.neighborhood %></h3>
+            <h3 style="text-align:left;float:left"><%= @recommended_houses.first.neighborhood %></h3>
             <h3 style="text-align:right;float:right"><%= "$ #{@recommended_houses.first.price.to_i}" %></h3>
             <br>
             <hr>
